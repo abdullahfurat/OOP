@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,17 +41,23 @@
             this.txtPersonelMail = new System.Windows.Forms.TextBox();
             this.cmbPersonelDepartman = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tsmYeniPersonel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDuzenle = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tsmYeniPersonel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yeniPersonelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDuzenle = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSil = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.tsmYeniPersonel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tsmYeniPersonel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -150,10 +157,17 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(23, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(481, 199);
+            this.groupBox1.Size = new System.Drawing.Size(524, 199);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personel Ekleme Ekranı";
+            // 
+            // tsmYeniPersonel
+            // 
+            this.tsmYeniPersonel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yeniPersonelToolStripMenuItem});
+            this.tsmYeniPersonel.Name = "tsmYeniPersonel";
+            this.tsmYeniPersonel.Size = new System.Drawing.Size(145, 26);
             // 
             // groupBox2
             // 
@@ -161,7 +175,7 @@
             this.groupBox2.Controls.Add(this.btnKaydet);
             this.groupBox2.Location = new System.Drawing.Point(23, 217);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(481, 100);
+            this.groupBox2.Size = new System.Drawing.Size(524, 100);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kontrol Paneli";
@@ -174,6 +188,7 @@
             this.btnDuzenle.TabIndex = 0;
             this.btnDuzenle.Text = "Düzenle";
             this.btnDuzenle.UseVisualStyleBackColor = true;
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
             // 
             // btnKaydet
             // 
@@ -188,7 +203,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listBox1);
-            this.groupBox3.Location = new System.Drawing.Point(510, 12);
+            this.groupBox3.Location = new System.Drawing.Point(553, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(322, 305);
             this.groupBox3.TabIndex = 6;
@@ -197,33 +212,56 @@
             // 
             // listBox1
             // 
+            this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(6, 27);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(310, 264);
             this.listBox1.TabIndex = 0;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
-            // tsmYeniPersonel
+            // errorProvider1
             // 
-            this.tsmYeniPersonel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yeniPersonelToolStripMenuItem});
-            this.tsmYeniPersonel.Name = "tsmYeniPersonel";
-            this.tsmYeniPersonel.Size = new System.Drawing.Size(181, 48); 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmDuzenle,
+            this.tsmSil});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // yeniPersonelToolStripMenuItem
             // 
-            this.yeniPersonelToolStripMenuItem.Image = global::OOP.Class_Ornek.Properties.Resources.icons8_add_user_male_96px_1;
+            this.yeniPersonelToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("yeniPersonelToolStripMenuItem.Image")));
             this.yeniPersonelToolStripMenuItem.Name = "yeniPersonelToolStripMenuItem";
-            this.yeniPersonelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yeniPersonelToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.yeniPersonelToolStripMenuItem.Text = "Yeni Personel";
             this.yeniPersonelToolStripMenuItem.Click += new System.EventHandler(this.yeniPersonelToolStripMenuItem_Click);
+            // 
+            // tsmDuzenle
+            // 
+            this.tsmDuzenle.Image = global::OOP.Class_Ornek.Properties.Resources.icons8_registration_100px;
+            this.tsmDuzenle.Name = "tsmDuzenle";
+            this.tsmDuzenle.Size = new System.Drawing.Size(180, 22);
+            this.tsmDuzenle.Text = "Düzenle";
+            this.tsmDuzenle.Click += new System.EventHandler(this.listBox1_DoubleClick);
+            // 
+            // tsmSil
+            // 
+            this.tsmSil.Image = global::OOP.Class_Ornek.Properties.Resources.icons8_reuse_100px;
+            this.tsmSil.Name = "tsmSil";
+            this.tsmSil.Size = new System.Drawing.Size(180, 22);
+            this.tsmSil.Text = "Sil";
+            this.tsmSil.Click += new System.EventHandler(this.tsmSil_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 335);
+            this.ClientSize = new System.Drawing.Size(940, 335);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -234,9 +272,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tsmYeniPersonel.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.tsmYeniPersonel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -261,6 +301,10 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ContextMenuStrip tsmYeniPersonel;
         private System.Windows.Forms.ToolStripMenuItem yeniPersonelToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmDuzenle;
+        private System.Windows.Forms.ToolStripMenuItem tsmSil;
     }
 }
 

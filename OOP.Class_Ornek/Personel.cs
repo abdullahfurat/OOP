@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{this.Adi} {this.Soyadi}";
         }
     }
 }
