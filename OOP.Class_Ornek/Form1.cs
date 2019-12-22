@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace OOP.Class_Ornek
+﻿namespace OOP.Class_Ornek
 {
+    using System;
+    using System.Windows.Forms;
     public partial class Form1 : Form
     {
         public Form1()
@@ -168,6 +167,7 @@ namespace OOP.Class_Ornek
         }
         #endregion
 
+        #region Silme Metodu
         private void tsmSil_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem == null)
@@ -177,6 +177,7 @@ namespace OOP.Class_Ornek
             }
 
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-        }
+        } 
+        #endregion
     }
 }
